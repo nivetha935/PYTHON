@@ -1,0 +1,23 @@
+name1 = input("Enter boy's name: ").lower().replace(" ", "")
+name2 = input("Enter girl's name: ").lower().replace(" ", "")
+
+l1 = list(name1)
+l2 = list(name2)
+
+
+i = 0
+while i < len(l1):
+    if l1[i] in l2:
+        l2.remove(l1[i])
+        l1.pop(i)
+        i = 0  # restart loop after modifying list
+    else:
+        i += 1
+
+total = len(l1) + len(l2)
+
+ans = ["FRIEND", "LOVE", "AFFECTION", "MARRIAGE", "ENEMY", "SISTER"]
+
+# Find result using modulo
+index = total % len(ans)
+print("Relationship status is:", ans[index])
