@@ -1,0 +1,57 @@
+import time
+import random
+a=input("entera name:")
+b=input("entera name:")
+print(f"hello {a} and {b} r u ready for game.")
+print("compu fixed 5 numbers in mind")
+
+num=[]
+while(len(num)!=5):
+    d=random.randint(1,10)
+    if(d in num):
+        continue
+    else:
+        num.append(d)
+        
+p1=[]
+p2=[]
+s2=0
+s1=0
+for i in range (3):
+    print(f"{a} enter a guess")
+    ans1=int(input())
+    if(ans1 not in p1 or ans1 not in p2):
+        p1.append(ans1)
+        if(ans1 in num):
+            print("correct")
+            s1+=1
+        else:
+            print("wrong")
+    else:
+        num=int(input("its already chosen ,guess another number:"))
+            
+    print(f"{b} enter a guess")
+    ans2=int(input())
+    if(ans2 not in p1 or ans2 not in p2):
+        p2.append(ans2)
+        if(ans2 in num):
+            print("correct")
+            s2+=1
+        else:
+            print("wrong")
+    else:
+        ans=int(input("its alreadu chosen ,guess another number:"))
+        
+time.sleep(2)
+print("lets summary")
+print("if comp has",num)
+print(f"{a} predits {p1}")
+print(f"{a} score is {s1}")
+print(f"{b} predits {p2}")
+print(f"{b} score is {s2}")
+if(s1>s2):
+    print("winner is n1")
+elif(s2>s1):
+    print("winner is n2")
+else:
+    print("draw")
